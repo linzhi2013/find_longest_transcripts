@@ -18,7 +18,7 @@ def get_longest_transcript(fasfile=None):
             m = re.search(r'\[locus_tag\=(.+?)\]', rec.description)
             if not m:
                 print("{} : No '[gene=XXX]' or '[locus_tag=XXX]', will not be output!".format(rec.id), file=sys.stderr)
-            continue
+                continue
         gene = m.group(1)
         transcript_len = len(rec)
         if gene in gene_seqid_len:
