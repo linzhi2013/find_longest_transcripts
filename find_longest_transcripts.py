@@ -15,7 +15,7 @@ def get_longest_transcript(fasfile=None):
     for rec in SeqIO.parse(fh_in, 'fasta'):
         m = re.search(r'\[gene\=(.+?)\]', rec.description)
         if not m:
-            m = re.search(r'\[locus_tag\=(.+?)\]', string)
+            m = re.search(r'\[locus_tag\=(.+?)\]', rec.description)
             if not m:
                 print("{} : No '[gene=XXX]' or '[locus_tag=XXX]', will not be output!".format(rec.id), file=sys.stderr)
             continue
